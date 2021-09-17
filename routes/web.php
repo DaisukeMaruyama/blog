@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('posts');
-});
+Route::get('/', [PostController::class, 'index'])
+  ->name('posts.index');
 
-Route::get('/post', function(){
-    return view('post');
-});
+Route::get('/posts/{post}', [PostController::class, 'show'])
+  ->name('posts.show')
+  ->where('post', '[0-9]+');
