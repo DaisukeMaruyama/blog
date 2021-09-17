@@ -1,0 +1,9 @@
+<x-layout>
+    @foreach ($posts as $post)
+        <div class="top">
+            <h1><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h1>
+            <h5>{{ $post->excerpt }}</h5>
+            <p>{{ $post->body }}</p>
+        </div>
+    @endforeach
+</x-layout>
