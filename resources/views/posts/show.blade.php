@@ -1,6 +1,7 @@
 <x-layout>
     <div class="top">
-        <h1><a href="/">{{ $post->title }}</a></h1>
+        <h1>{{ $post->title }}</h1>
         <p>{{ $post->body }}</p>
     </div>
+    <a href="/">Back</a>
 </x-layout>
