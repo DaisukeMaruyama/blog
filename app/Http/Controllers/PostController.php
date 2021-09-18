@@ -13,6 +13,7 @@ class PostController extends Controller
           ->with(['posts' => $posts]);
     }
 
+    //implicit bindingでかく
     public function show(Post $post) {
 
         return view('posts.show')
