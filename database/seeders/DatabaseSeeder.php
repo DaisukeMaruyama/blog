@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        User::truncate();
+        Category::truncate();
+
         User::create([
             'username' => '管理者ABC',
             'email' => 'abc@example.com',
