@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        /*seedデータが重複してもエラーを起こさないようにする
         User::truncate();
         Category::truncate();
+        */
 
         User::create([
             'username' => '管理者ABC',
