@@ -14,4 +14,10 @@ class UserController extends Controller
           ->with(['users' => $users]);
     }
 
+    public function show (User $user)
+    {
+        return view('users.show')
+          ->with(['user' => $user]);
+    }
+
 }
