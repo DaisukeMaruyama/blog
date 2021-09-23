@@ -16,8 +16,13 @@ class UserController extends Controller
 
     public function show (User $user)
     {
+        $userBook = $user->posts;
+
         return view('users.show')
-          ->with(['user' => $user]);
+          ->with([
+              'user' => $user,
+              'userBook' => $userBook,
+              ]);
     }
 
 }
