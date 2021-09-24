@@ -5,7 +5,7 @@
             <h5>{{ $post->excerpt }}</h5>
             <p>{!! nl2br(e($post->body)) !!}</p>
             <p>
-                <a href="{{ route('categories.show', $post->category->slug) }}">
+                <a href="{{ route('categories.show', $post->category->slug) }}" class="btn btn-info">
                     {{ $post->category->name }}
                 </a>
             </p>
