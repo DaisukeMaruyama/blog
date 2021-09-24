@@ -1,7 +1,7 @@
 <x-layout>
     <div class="top">
         <h3>Name: {{ $user->username }}</h3>
-        <p>Books wriiten by {{ $user->username }}</p>
+        <p>Books written by {{ $user->username }}</p>
         {{--
         @foreach ($user->posts as $post)
             <p>title: {{ $post->title }} </p>
