@@ -1,4 +1,5 @@
 <x-layout>
+    <img src="{{ asset('/images/logo.svg') }}" class="mb-4 d-block mx-auto mt-4">
     @foreach ($posts as $post)
         <div class="top">
             <h1><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></h1>
