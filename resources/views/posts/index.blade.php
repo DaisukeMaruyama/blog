@@ -7,12 +7,15 @@
         @if ($posts->count())
             <x-post-featured-card :post="$posts[0]" />
 
-            <div class="lg:grid lg:grid-cols-2">
-                {{-- components/post-card.blade.phpで表示--}}
-                @foreach ($posts->skip(1) as $post)
-                    <x-post-card :post="$post"/>
-                @endforeach
-            </div>
+            @if ($posts->count() > 1)
+                <div class="lg:grid lg:grid-cols-2">
+                    {{-- components/post-card.blade.phpで表示--}}
+                    @foreach ($posts->skip(1) as $post)
+                        <x-post-card :post="$post" class="bg-red-500"/>
+                    @endforeach
+                </div>
+            @endif
+
         @else
             <p class="text-center">No posts yet. Please check back later</p>
         @endif
