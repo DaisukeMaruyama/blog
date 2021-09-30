@@ -17,12 +17,12 @@
 
 
             <div x-data="{ show: false }">
-                <button>Categories</button>
+                <button @click="show = true" class="py-2 pl-3 pr-9 text-sm font-semibold">Categories</button>
 
                 <div x-show="show">
-                    <a href="#">One</a>
-                    <a href="#">Two</a>
-                    <a href="#">Three</a>
+                    <a href="#" class="block">One</a>
+                    <a href="#" class="block">Two</a>
+                    <a href="#" class="block">Three</a>
                 </div>
             </div>
 
