@@ -19,9 +19,9 @@
             <div x-data="{ show: false }">
                 <button @click="show = true" class="py-2 pl-3 pr-9 text-sm font-semibold">Categories</button>
 
-                <div x-show="show" class="py-2">
+                <div x-show="show" class="py-2 absolute bg-gray-100 rounded-xl w-full mt-2">
                     @foreach ($categories as $category)
-                        <a href="#" class="block text-left px-3 text-sm leading-5" value="{{ $category->slug }}">{{ $category->name }}</a>
+                        <a href="#" class="block text-left px-3 text-sm leading-6 hover:bg-gray-300 focus:bg-grey-300" value="{{ $category->slug }}">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </div>
