@@ -23,7 +23,7 @@ Route::get('/', [PostController::class, 'index'])
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])
   ->name('posts.show');
 
-Route::get('/categories/{post:slug}', [CategoryController::class, 'show'])
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])
   ->name('categories.show');
 
 Route::get('/users/{user}', [UserController::class, 'show'])
