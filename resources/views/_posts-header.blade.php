@@ -21,7 +21,7 @@
 
                 <div x-show="show">
                     @foreach ($categories as $category)
-                        <a href="#" class="block" value="{{ $category->slug }}">{{ $category->name }}</a>
+                        <a href="#" class="block text-left px-3" value="{{ $category->slug }}">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </div>
