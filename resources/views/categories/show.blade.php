@@ -1,11 +1,13 @@
 <x-layout>
-    @foreach ($categories as $category)
-    <div class="container">
-        <p>{{ $category->name }}</p>
-        @foreach ($category->posts as $post)
-            <p>{{ $post->title }}</p>
-            <p>{{ $post->body }}</p>
-        @endforeach
-    </div>
-    @endforeach
-</x-layout>
+    {{-- view/_post-header.blade.php部分テンプレートで表示--}}
+
+
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+            {{-- components/post-featured-card.blade.phpで表示--}}
+            @if ($category->posts->count())
+                <x-posts-grid :posts="$category->posts" />
+            @else
+                <p class="text-center">No posts yet. Please check back later</p>
+            @endif
+    </main>
+    </x-layout>
