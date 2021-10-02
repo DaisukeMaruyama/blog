@@ -12,6 +12,13 @@ class PostController extends Controller
         $posts = Post::with('category')->latest()->get();
         $categories = Category::all();
 
+        if (request('search')) {
+            $posts
+            = Post::where('title', 'like', '%' . request('search') . '%')
+            ->orWhere('body', 'like', '%' . request('search') . '%')
+            ->get();
+        }
+
         return view('posts.index')
           ->with([
               'posts' => $posts,
