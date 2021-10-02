@@ -22,7 +22,7 @@
                     class="py-2 pl-3 pr-9 text-sm font-semibold w-full flex lg:inline-flex lg-w-32"
                 >
 
-                {{ isset($currentCategory) ? $currentCategory->name : "Categories"}}
+                {{ isset($currentCategory) ? ucwords($currentCategory->name) : "Categories"}}
 
                     <svg class="transform -rotate-90 absolute pointer-events-none" style="right: 12px;" width="22"
                     height="22" viewBox="0 0 22 22">
