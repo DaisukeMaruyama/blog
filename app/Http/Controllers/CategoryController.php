@@ -12,11 +12,17 @@ class CategoryController extends Controller
     {
         $category = Category::where('slug', $slug)->first();
         $categories = Category::all();
+        $currentCategory = $category;
 
         $id = $category->id;
         $posts = Post::where('id', $id)->get();
         return view('categories.show')
-          ->with(['category' => $category,'posts' => $posts,'categories' => $categories]);
+          ->with([
+              'category' => $category,
+              'posts' => $posts,
+              'categories' => $categories,
+              'currentCategory' => $currentCategory,
+              ]);
     }
 
 }
