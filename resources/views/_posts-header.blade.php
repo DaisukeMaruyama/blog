@@ -36,7 +36,7 @@
 
                 </button>
 
-                <div x-show="show" class="py-2 absolute bg-gray-100 rounded-xl w-full mt-2" style="display: none; z-index: 100!important;">
+                <div x-show="show" class="py-2 absolute bg-gray-100 rounded-xl w-full mt-2 overflow-auto max-h-52" style="display: none; z-index: 100!important;">
                     @foreach ($categories as $category)
                         <a href="/categories/{{ $category->slug }}"
                             class="
