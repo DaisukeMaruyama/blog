@@ -17,14 +17,17 @@ class Post extends Model
     ];
 
     //scopeでfilterを記載。これでコントローラーでfilterを呼び出す
-    public function scopeFilter($query)
+    public function scopeFilter($query, array $filters)
     {
-        if (request('search')) {
+
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+
             $query
-            ->where('title', 'like', '%' . request('search') . '%')
-            ->orWhere('body', 'like', '%' . request('search') . '%')
+            ->where('title', 'like', '%' . $search . '%')
+            ->orWhere('body', 'like', '%' . $search . '%')
             ->get();
-        }
+
+        });
     }
 
     public function category()
