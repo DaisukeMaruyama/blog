@@ -20,7 +20,8 @@ class Post extends Model
     public function scopeFilter($query, array $filters)
     {
 
-        $query->when($filters['search'] ?? false, function ($query, $search) {
+        //$filters['search']に何も入って
+        $query->when(isset($filters['search']) ? $filters['search'] : false, function ($query, $search) {
 
             $query
             ->where('title', 'like', '%' . $search . '%')
