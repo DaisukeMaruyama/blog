@@ -16,6 +16,17 @@ class Post extends Model
         'body',
     ];
 
+    //scopeでfilterを記載。これでコントローラーでfilterを呼び出す
+    public function scopeFilter($query)
+    {
+        if (request('search')) {
+            $query
+            ->where('title', 'like', '%' . request('search') . '%')
+            ->orWhere('body', 'like', '%' . request('search') . '%')
+            ->get();
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo(category::class);
