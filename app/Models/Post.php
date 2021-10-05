@@ -20,7 +20,7 @@ class Post extends Model
     public function scopeFilter($query, array $filters)
     {
 
-        //$filters['search']に何も入って
+        //値がフォームに入っているかみる
         $query->when(isset($filters['search']) ? $filters['search'] : false, function ($query, $search) {
 
             $query
