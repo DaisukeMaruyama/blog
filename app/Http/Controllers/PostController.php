@@ -10,11 +10,13 @@ class PostController extends Controller
 
     public function index() {
 
+        //filter()はmodel内にscopeで記載
+        $posts = Post::with('category')->latest()->filter()->get();
         $categories = Category::all();
 
         return view('posts.index')
           ->with([
-              'posts' => $this->getPosts(),
+              'posts' => $posts,
               'categories' => $categories,
           ]);
     }
@@ -26,19 +28,4 @@ class PostController extends Controller
           ->with(['post' => $post]);
     }
 
-    //getPostで検索メソッドを定義。post/indexアクション内で呼び出している
-    protected function getPosts() {
-
-        //withでデータとることでデータ通信を早くする
-        $posts = Post::with('category')->latest()->get();
-
-        if (request('search')) {
-            $posts
-            = Post::where('title', 'like', '%' . request('search') . '%')
-            ->orWhere('body', 'like', '%' . request('search') . '%')
-            ->get();
-        }
-
-        return $posts;
-    }
 }
