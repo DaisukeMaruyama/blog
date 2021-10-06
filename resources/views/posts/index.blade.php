@@ -6,6 +6,9 @@
         {{-- components/post-featured-card.blade.phpで表示--}}
         @if ($posts->count())
             <x-posts-grid :posts="$posts" />
+
+            {{-- pagination --}}
+            {{ $posts->links() }}
         @else
             <p class="text-center">No posts yet. Please check back later</p>
         @endif
