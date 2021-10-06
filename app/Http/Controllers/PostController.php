@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index() {
 
         //filter()はmodel内にscopeで記載
-        $posts = Post::with('category')->latest()->filter(request(['search']))->get();
+        $posts = Post::with('category')->latest()->filter(request(['search']))->paginate(6);
         $categories = Category::all();
 
         return view('posts.index')
