@@ -4,6 +4,7 @@ use App\Models\Post;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,5 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])
 Route::get('/users/{user}', [UserController::class, 'show'])
   ->name('users.show')
   ->where('user', '[0-9]+');
+
+Route::get('register', [RegisterController::class, 'create']);
