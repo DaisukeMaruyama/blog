@@ -15,6 +15,8 @@
                                 type="text"
                                 name="username"
                                 id="username"
+                                {{-- old('')でエラーが出ても値を保持 --}}
+                                value="{{ old('username') }}"
                                 required
                                 >
                     @error('username')
@@ -31,6 +33,7 @@
                                 type="email"
                                 name="email"
                                 id="email"
+                                value="{{ old('email') }}"
                                 required
                                 >
                 </div>
