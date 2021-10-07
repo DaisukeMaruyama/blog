@@ -32,3 +32,4 @@ Route::get('/users/{user}', [UserController::class, 'show'])
   ->where('user', '[0-9]+');
 
 Route::get('register', [RegisterController::class, 'create']);
+Route::post('register', [RegisterController::class, 'store']);
