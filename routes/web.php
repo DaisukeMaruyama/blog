@@ -31,5 +31,8 @@ Route::get('/users/{user}', [UserController::class, 'show'])
   ->name('users.show')
   ->where('user', '[0-9]+');
 
-Route::get('register', [RegisterController::class, 'create']);
-Route::post('register', [RegisterController::class, 'store']);
+  //Only guests are able to access
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionsController::class, 'destroy']);
