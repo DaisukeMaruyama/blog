@@ -20,8 +20,7 @@ class RegisterController extends Controller
             'password' => 'required | min:6 | max:255',
         ]);
 
-        // passwordを暗号化
-        $attributes['password'] = bcrypt($attributes['password']);
+        // passwordを暗号化するのはUser.phpで
 
         User::create($attributes);
 
