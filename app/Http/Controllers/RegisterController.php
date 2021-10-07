@@ -22,7 +22,10 @@ class RegisterController extends Controller
 
         // passwordを暗号化するのはUser.phpで
 
-        User::create($attributes);
+        $user = User::create($attributes);
+
+        //sign in
+        auth()->login($user);
 
         return redirect('/')->with('success', 'Your account has been created.');;
     }
