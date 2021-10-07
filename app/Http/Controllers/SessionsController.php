@@ -12,4 +12,9 @@ class SessionsController extends Controller
 
         return redirect('/')->with('success', 'Goodbye');
     }
+
+    public function create()
+    {
+        return view('sessions.create');
+    }
 }
