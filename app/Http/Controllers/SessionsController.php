@@ -17,4 +17,22 @@ class SessionsController extends Controller
     {
         return view('sessions.create');
     }
+
+    public function store()
+    {
+        $attributes = request()->validate([
+            'email' => 'required | email',
+            'password' => 'required',
+        ]);
+
+        if (auth()->attempt($attributes)) {
+            session()->regenerate();
+            return redirect('/')->with('success', 'Welcome Back');
+        }
+
+        //もし失敗の場合
+        return back()
+        ->withInput()
+        ->withErrors(['email' => 'Your provided credentials could not be verified.']);
+    }
 }
