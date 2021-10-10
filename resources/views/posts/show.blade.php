@@ -51,10 +51,10 @@
                 </div>
             </article>
 
-            <section>
-                <article class="flex">
-                    <div>
-                        <img src="http://i.pravatar.cc/100" alt="">
+            <section class="col-span-8 col-start-5 mt-10">
+                <article class="flex bg-gray-100 p-6 rounded-xl border-gray-200 space-x-4">
+                    <div class="flex-shrink-0">
+                        <img src="http://i.pravatar.cc/60" alt="" width="60" height="60">
                     </div>
                     <div>
                         <header>
