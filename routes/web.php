@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
@@ -24,6 +25,8 @@ Route::get('/', [PostController::class, 'index'])
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])
   ->name('posts.show');
+
+Route::post('/posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])
   ->name('categories.show');
