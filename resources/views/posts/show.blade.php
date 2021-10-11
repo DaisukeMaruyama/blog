@@ -51,6 +51,17 @@
                 </div>
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
 
+                    <form method="post" action="#" class="border boder-gray-200 p-6 rounded-xl">
+                        @csrf
+
+                        <header class="flex">
+                            <img src="http://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="60" height="60" class="rounded-xl">
+                            <h2>Want to participate?</h2>
+                        </header>
+
+
+                    </form>
+
                     @foreach ($post->comments as $comment)
                         <x-post-comment :comment="$comment"/>
                     @endforeach
