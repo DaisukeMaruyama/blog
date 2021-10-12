@@ -8,7 +8,7 @@
         <header class="mb-4">
             <h3 class="font-bold">{{ $comment->user->username }}</h3>
             <p class="text-sm">Posted
-                <time>{{ $comment->created_at }}</time>
+                <time>{{ $comment->created_at->diffForHumans() }}</time>
             </p>
         </header>
         <p>
