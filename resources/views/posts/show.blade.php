@@ -51,25 +51,31 @@
                 </div>
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
 
-                    <x-panel>
-                        <form method="POST" action="/posts/{{ $post->slug }}/comments">
-                            @csrf
+                    @auth
+                        <x-panel>
+                            <form method="POST" action="/posts/{{ $post->slug }}/comments">
+                                @csrf
 
-                            <header class="flex text-center">
-                                <img src="http://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="40" height="40" class="rounded-full">
-                                <h2 class="ml-4">Want to participate?</h2>
-                            </header>
+                                <header class="flex text-center">
+                                    <img src="http://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="40" height="40" class="rounded-full">
+                                    <h2 class="ml-4">Want to participate?</h2>
+                                </header>
 
-                            <div class="mt-6">
-                                <textarea name="body" class="w-full text-sm focus:outline-none focus:ring" cols="30" rows="5" placeholder="Quick, things of something to say!"></textarea>
-                            </div>
+                                <div class="mt-6">
+                                    <textarea name="body" class="w-full text-sm focus:outline-none focus:ring" cols="30" rows="5" placeholder="Quick, things of something to say!"></textarea>
+                                </div>
 
-                            <div class="flex justify-end mt-10 border-t border-gray-200 pt-6">
-                                <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600">Post</button>
-                            </div>
+                                <div class="flex justify-end mt-10 border-t border-gray-200 pt-6">
+                                    <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600">Post</button>
+                                </div>
 
-                        </form>
-                    </x-panel>
+                            </form>
+                        </x-panel>
+                    @else
+                        <div class="bg-blue-600 hover:bg-blue-700 rounded-xl">
+                            <a href="/login" class="text-center text-white p-2 block">Login to comment something for this post!</a>
+                        </div>
+                    @endauth
 
                     @foreach ($post->comments as $comment)
                         <x-post-comment :comment="$comment"/>
