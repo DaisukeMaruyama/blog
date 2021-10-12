@@ -72,9 +72,7 @@
                             </form>
                         </x-panel>
                     @else
-                        <div class="bg-blue-600 hover:bg-blue-700 rounded-xl">
-                            <a href="/login" class="text-center text-white p-2 block">Login to comment something for this post!</a>
-                        </div>
+                        <p class="text-xl"><a href="/register" class="border-solid border-b border-black">Register</a> or <a href="/login" class="border-solid border-b border-black">Login</a> to leave a comment for this post!</p>
                     @endauth
 
                     @foreach ($post->comments as $comment)
